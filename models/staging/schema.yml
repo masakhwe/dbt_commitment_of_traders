@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+    - name: staging
+      database: windy-hangar-350613
+      schema: committment_of_traders
+
+      tables:
+        - name: cot
