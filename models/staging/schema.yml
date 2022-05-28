@@ -7,3 +7,19 @@ sources:
 
       tables:
         - name: cot
+
+models:
+  - name: stg_cot
+    description: >
+      This models defines items submitted by different various traders to the CFTC
+
+    columns:
+      - name: report_id
+        description: unique identifier of each record
+    
+        tests:
+          - unique:
+              severity: warn
+
+          - not_null:
+              severity: warn
