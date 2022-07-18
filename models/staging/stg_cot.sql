@@ -1,5 +1,5 @@
 {{
-    config(materialized='incremental' )
+    config(materialized='view' )
 }}
 
 select
@@ -48,7 +48,7 @@ select
      REGEXP_REPLACE(traders_lev_money_short_all, '[.]', '0') as traders_lev_money_short_all,
      REGEXP_REPLACE(traders_lev_money_spread_all, '[.]', '0') as traders_lev_money_spread_all
 FROM {{ source('staging', 'cot') }}
-WHERE 1 = 1
-    {% if is_incremental() %}
-      AND report_date >= (SELECT max(report_date) FROM {{ this }})
-    {% endif %}
+-- WHERE 1 = 1
+--     {% if is_incremental() %}
+--       AND report_date >= (SELECT max(report_date) FROM {{ this }})
+--     {% endif %}
